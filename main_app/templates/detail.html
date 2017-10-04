@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+    <!--<h1>{{ treasure.name }} </h1>
+    <img src="{{ treasure.img_url }}">
+    <p> {{ treasure.value }}</p>
+    <p> {{ treasure.location }} </p>-->
+<main class="container container">
+   <div class="treasure panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">{{ horse.name }}</h2>
+                <h2 class="panel-price">{{ horse.price }}</h2>
+            </div>
+            <div class="panel-body">
+                    <div class="treasure-photo-detail">
+                        <img src="{{ horse.image.url }}" height="200">
+                    </div>
+            
+        
+
+                <table class="treasure-table">
+                    <tr>
+                        <th>
+                            <img src="{% static 'images/material-icon.png' %}">
+                            Breed:
+                        </th>
+                        <td>{{ horse.breed }}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <img src="{% static 'images/value-icon.png' %}">
+                            Price:
+                        </th>
+                            <td>{% if horse.price > 0 %}
+                                    {{ horse.price }}
+                                {% else %}
+                                    Contact Seller
+                                {% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <img src="{% static "images/location-icon.png" %}" alt="Location Icon">
+                            Location:
+                        </th>
+
+                        <td>{{ horse.location }}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <img src="{% static "images/location-icon.png" %}" alt="Location Icon">
+                            Sire:
+                        </th>
+
+                        <td>{{ horse.sire }}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <img src="{% static "images/location-icon.png" %}" alt="Location Icon">
+                            Dam:
+                        </th>
+
+                        <td>{{ horse.dam }}</td>
+                        <tr>
+                        <th>
+                            <img src="{% static "images/location-icon.png" %}" alt="Location Icon">
+                            Age:
+                        </th>
+
+                        <td>{{ horse.age }}</td>
+                    </tr>
+                    </tr>
+                </table>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+{% block content %}
+
+    <h1> myHorse </h1>
+    <main class="container container">
+        <div class="row">
+            {% for horse in horses %}
+                <div class="col-md-4">
+                    <a href="/{{horse.id}}/">
+                        <div class="treasure panel panel-default">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">{{ horse.name }}</h2>
+                        </div>
+                    </a>
+                        <div class="panel-body">
+                                <div class="treasure-photo">
+                                    <img src="{{ treasure.image.url }}" width=100% height=auto>
+                                </div>
+                        </div>
+                    </div>
+                <!--<p>{{ horse.name }}</p>
+                <p>{{ horse.price }}</p>
+                <p>{{ horse.age }}</p>
+                <p>{{ horse.breed }}</p>
+                <p>{{ horse.sire }}</p>
+                <p>{{ horse.dam }}</p>
+                <p>{{ horse.location }}</p>-->
+             {% endfor %}
+
+{% endblock %}

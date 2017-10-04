@@ -1,0 +1,20 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link rel ="stylesheet" type="text/css" href="{% static 'style.css' %}" />   
+    <title>myHorse</title>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top text-center">
+        <a href="/">
+            <img src="{% static 'images/logo.png' %}" alt="myHorse">
+        </a>
+    </nav>
+{% block content%}
+{% endblock %}
+
+</body>
+</html>
