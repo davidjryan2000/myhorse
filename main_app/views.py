@@ -17,3 +17,4 @@ def post_horse(request):
         form.save(commit=True)
 
     return HttpResponseRedirect('/')
+

@@ -11,7 +11,7 @@
    <div class="treasure panel panel-default">
             <div class="panel-heading">
                 <h2 class="panel-title">{{ horse.name }}</h2>
-                <h2 class="panel-price">{{ horse.price }}</h2>
+               {% comment %} <h2 class="panel-title align="right">{{ horse.price }}</h2>{% endcomment %}
             </div>
             <div class="panel-body">
                     <div class="treasure-photo-detail">
@@ -23,14 +23,14 @@
                 <table class="treasure-table">
                     <tr>
                         <th>
-                            <img src="{% static 'images/material-icon.png' %}">
+                            <img src="{% static "images/material-icon.png" %}">
                             Breed:
                         </th>
                         <td>{{ horse.breed }}</td>
                     </tr>
                     <tr>
                         <th>
-                            <img src="{% static 'images/value-icon.png' %}">
+                            <img src="{% static "images/value-icon.png" %}">
                             Price:
                         </th>
                             <td>{% if horse.price > 0 %}
@@ -41,7 +41,7 @@
                     </tr>
                     <tr>
                         <th>
-                            <img src="{% static "images/location-icon.png" %}" alt="Location Icon">
+                            <img src="{% static "images/location-icon.png" %}">
                             Location:
                         </th>
 
@@ -49,7 +49,7 @@
                     </tr>
                     <tr>
                         <th>
-                            <img src="{% static "images/location-icon.png" %}" alt="Location Icon">
+                            <img src="{% static "images/location-icon.png" %}">
                             Sire:
                         </th>
 
@@ -57,14 +57,14 @@
                     </tr>
                     <tr>
                         <th>
-                            <img src="{% static "images/location-icon.png" %}" alt="Location Icon">
+                            <img src="{% static "images/location-icon.png" %}">
                             Dam:
                         </th>
 
                         <td>{{ horse.dam }}</td>
                         <tr>
                         <th>
-                            <img src="{% static "images/location-icon.png" %}" alt="Location Icon">
+                            <img src="{% static "images/location-icon.png" %}">
                             Age:
                         </th>
 

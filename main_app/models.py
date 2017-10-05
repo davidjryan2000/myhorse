@@ -10,7 +10,7 @@ class Horse(models.Model):
     age = models.CharField(max_length=100)
     sire = models.CharField(max_length=100)
     dam = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='treasure_images',
+    image = models.ImageField(upload_to='horse_images',
                             default='media/default.png')
    
 
