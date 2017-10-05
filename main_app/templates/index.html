@@ -1,9 +1,8 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load staticfiles %}
 
 {% block content %}
 
-    <h1> myHorse </h1>
     
         <div class="row">
             {% for horse in horses %}
@@ -12,16 +11,55 @@
                         <div class="treasure panel panel-default">
                         <div class="panel-heading">
                             <h2 class="panel-title">{{ horse.name }}</h2>
-                        </div>
+                            <a class="panel-username"
+                                href="/user/{{horse.user.username}}/">
+                                by: {{ horse.user.username }}
+                            </a>
                         </div>
                     </a>
                         <div class="panel-body">
+                            <a href="/{{horse.id}}/">
                                 <div class="treasure-photo">
-                                    <img src="{{ horse.image.url }}" width=100% height=auto>
+                                    <img src="{{horse.image.url }}" width=100% height=auto>
                                 </div>
+                            </a>
+
+                            
+
+                            <button id ="likes" data-id="{{horse.id}}" class="btn btn-mini btn-danger glyphicon glyphicon-heart" type="button">
+                                {% if horse.likes > 0 %} {{ horse.likes }} {% endif %}
+                             </button>
                         </div>
                     </div>
                 
-             {% endfor %}
+            </div>
+
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div><br><div class="row">
+            {% endif %}
+            {% endfor %}
+            
+        </div>
+
+    {% if user.is_authenticated %}
+        <div class="treasure panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add Horse</h3>
+            </div>
+        
+        <div class="panel-body">
+
+            <form enctype="multipart/form-data" action="post_url/" method="post">
+            {% csrf_token %}
+            <div class="field-wrapper">
+            {{ form.as_p }}
+            </div>
+
+            <input class="btn" type="submit" value="Submit"/>
+            </form>
+        </div>
+    </div>
+   
+    {% endif %}
 
 {% endblock %}
